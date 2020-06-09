@@ -1,22 +1,26 @@
 package com.learn.spring.guru.Map;
 
 import com.learn.spring.guru.model.Owner;
-import com.learn.spring.guru.service.CRUDService;
+import com.learn.spring.guru.service.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements CRUDService<Owner,Long> {
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
 
     @Override
-    public Optional<Owner> findById(Long Id) {
+    public Optional<Owner> findById(Long Id)
+    {
+
         return super.findById(Id);
     }
 
 
     @Override
-    public Owner save(Owner owner) {
-        return super.save(owner,owner.getId());
+    public void save(Owner owner) {
+        super.save(owner, owner.getId());
     }
 
     @Override
@@ -34,4 +38,8 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements C
             super.delete(owner);
     }
 
+    @Override
+    public Optional<Owner> findByLastName(String lastName) {
+        return Optional.empty();
+    }
 }

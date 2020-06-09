@@ -1,12 +1,12 @@
 package com.learn.spring.guru.Map;
 
 import com.learn.spring.guru.model.Pet;
-import com.learn.spring.guru.service.CRUDService;
+import com.learn.spring.guru.service.PetService;
 
 import java.util.Optional;
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet,Long> implements CRUDService<Pet,Long> {
+public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
 
     @Override
     public Optional<Pet> findById(Long Id) {
@@ -15,8 +15,8 @@ public class PetServiceMap extends AbstractMapService<Pet,Long> implements CRUDS
 
 
     @Override
-    public Pet save(Pet pet) {
-        return super.save(pet,pet.getId());
+    public void save(Pet pet) {
+        super.save(pet, pet.getId());
     }
 
     @Override
