@@ -11,14 +11,14 @@ import java.util.Set;
 public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
 
     @Override
-    public Optional<Vet> findById(Long Id) {
+    public Vet findById(Long Id) {
         return super.findById(Id);
     }
 
 
     @Override
-    public void save(Vet vet) {
-        super.save(vet, vet.getId());
+    public Vet save(Vet vet) {
+        return super.save(vet);
     }
 
     @Override

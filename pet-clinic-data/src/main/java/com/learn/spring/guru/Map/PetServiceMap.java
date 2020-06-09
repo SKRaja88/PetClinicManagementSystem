@@ -9,14 +9,14 @@ import java.util.Set;
 public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
 
     @Override
-    public Optional<Pet> findById(Long Id) {
+    public Pet findById(Long Id) {
         return super.findById(Id);
     }
 
 
     @Override
-    public void save(Pet pet) {
-        super.save(pet, pet.getId());
+    public Pet save(Pet pet) {
+        return super.save(pet );
     }
 
     @Override

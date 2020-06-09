@@ -5,9 +5,9 @@ import java.util.Set;
 
 public interface CRUDService<T,ID> {
 
-    Optional<T> findById(Long Id);
+    T findById(Long Id);
 
-    void save(T object);
+    T save(T object);
 
     Set<T> findAll();
 

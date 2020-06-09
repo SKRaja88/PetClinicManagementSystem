@@ -8,10 +8,10 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
-    public Optional<Owner> findById(Long Id)
+    public Owner findById(Long Id)
     {
 
         return super.findById(Id);
@@ -19,8 +19,8 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
 
 
     @Override
-    public void save(Owner owner) {
-        super.save(owner, owner.getId());
+    public Owner save(Owner owner) {
+       return super.save(owner);
     }
 
     @Override
