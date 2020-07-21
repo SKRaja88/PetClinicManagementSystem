@@ -1,8 +1,10 @@
 package com.learn.spring.guru.bootstrap;
 
 import com.learn.spring.guru.model.Owner;
+import com.learn.spring.guru.model.PetType;
 import com.learn.spring.guru.model.Vet;
 import com.learn.spring.guru.service.OwnerService;
+import com.learn.spring.guru.service.PetTypeService;
 import com.learn.spring.guru.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,10 +14,12 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService,VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
@@ -43,5 +47,15 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Loaded Vets");
 
         System.out.println(vetService.findAll().toString());
+
+        PetType dog=new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType=petTypeService.save(dog);
+
+        PetType cat=new PetType();
+        dog.setName("Cat");
+        PetType savedCatPetType=petTypeService.save(cat);
+
+
     }
 }
