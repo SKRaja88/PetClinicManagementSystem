@@ -1,4 +1,4 @@
-package com.learn.spring.guru.Map;
+package com.learn.spring.guru.service.Map;
 
 import com.learn.spring.guru.model.BaseEntity;
 
@@ -9,12 +9,12 @@ public abstract class AbstractMapService<T extends BaseEntity,ID extends Long> {
 
     protected Map<Long,T> map= new HashMap<>();
 
-   T findById(Long Id){
+   protected T findById(Long Id){
 
         return  map.get(Id);
     }
 
-    T save(T object){
+    protected T save(T object){
         if(object!=null){
             if(object.getId()!=null){
             object.setId(this.getNextId());
@@ -25,14 +25,14 @@ public abstract class AbstractMapService<T extends BaseEntity,ID extends Long> {
         }
     return object;
     }
-    Set<T> findAll(){
+    protected Set<T> findAll(){
         return new HashSet(map.values());
     }
 
-    void delete(T object){
+    protected void delete(T object){
         map.entrySet().removeIf(tidEntry -> tidEntry.getValue().equals(object));
     }
-    void deleteById(Long Id){
+    protected void deleteById(Long Id){
         map.remove(Id);
 
     }

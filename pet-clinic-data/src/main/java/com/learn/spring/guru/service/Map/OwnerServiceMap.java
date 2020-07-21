@@ -1,4 +1,4 @@
-package com.learn.spring.guru.Map;
+package com.learn.spring.guru.service.Map;
 
 import com.learn.spring.guru.model.Owner;
 import com.learn.spring.guru.service.OwnerService;

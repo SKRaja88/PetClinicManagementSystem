@@ -1,15 +1,11 @@
 package com.learn.spring.guru.bootstrap;
 
-import com.learn.spring.guru.Map.OwnerServiceMap;
-import com.learn.spring.guru.Map.VetServiceMap;
 import com.learn.spring.guru.model.Owner;
 import com.learn.spring.guru.model.Vet;
 import com.learn.spring.guru.service.OwnerService;
 import com.learn.spring.guru.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @Component
 public class DataLoader implements CommandLineRunner {
