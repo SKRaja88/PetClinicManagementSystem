@@ -1,6 +1,6 @@
 package com.learn.spring.guru.model;
 
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -8,6 +8,11 @@ import java.util.Set;
 
 @Table(name="owners")
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Owner extends Person{
 
    @Column(name="address")
@@ -22,35 +27,13 @@ public class Owner extends Person{
    @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
    private Set<Pet> pets=new HashSet();
 
-    public String getAddress() {
-        return address;
-    }
+   @Builder
+   public Owner(Long Id,String firstName,String lastName,String address,String city,String telephone,Set<Pet> pets){
+      super(Id,firstName,lastName);
+      this.address=address;
+      this.city=city;
+      this.telephone=telephone;
+      this.pets=pets;
+   }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
 }
